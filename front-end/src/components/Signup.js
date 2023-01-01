@@ -4,9 +4,10 @@ const Signup = () => {
     const [fName, setFName] = useState("");
     const [lName, setLName] = useState("");
     const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPwd] = useState("");
     const collectData = () => {
-        console.warn(fName, lName, email, password);
+        console.warn(fName, lName, email, username, password);
     }
 
     return (
@@ -29,6 +30,12 @@ const Signup = () => {
                     <label htmlFor="email">Email</label>
                     <input id="email" type="text" value={email} onChange={
                         (e)=>setEmail(e.target.value)
+                    }/>
+                </p>
+                <p>
+                    <label htmlFor="username">Username</label>
+                    <input id="username" type="text" value={username} onChange={
+                        (e)=>setUsername(e.target.value)
                     }/>
                 </p>
                 <p>
