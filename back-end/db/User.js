@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Define structure of users db
 const userSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
@@ -8,4 +9,5 @@ const userSchema = new mongoose.Schema({
     password: String
 });
 
+// Export an interface for users database
 module.exports = mongoose.model("users", userSchema);
