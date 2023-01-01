@@ -26,9 +26,11 @@ const Signup = () => {
             }
         });
         // Convert
-        result = result.json();
+        result = await result.json();
         // Print to user
         console.warn(result);
+        // Add user to local storage
+        localStorage.setItem("user", JSON.stringify(result));
         // Redirect user to main page
         navigate('/');
     }
