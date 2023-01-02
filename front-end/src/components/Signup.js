@@ -20,7 +20,7 @@ const Signup = () => {
         {
             navigate("/");
         }
-    }, /* Call once */ []);
+    }, /* Call once */ [navigate]);
 
     // Called on form submit
     const collectData = async () => {
@@ -42,7 +42,7 @@ const Signup = () => {
         // Add user to local storage
         localStorage.setItem("user", JSON.stringify(result));
         // Redirect user to main page
-        navigate('/');
+        navigate("/");
     }
 
     return (

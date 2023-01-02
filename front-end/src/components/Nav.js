@@ -26,7 +26,7 @@ const Nav = () => {
                     {/* Logout on click */}
                     <li><Link to="/" onClick = {logout}>Logout</Link></li>
                 </> :
-                    <li><Link to="/signup">Signup</Link></li>
+                    <li><Link to="/login">Login</Link></li>
                 }
             </ul>
         </nav>
