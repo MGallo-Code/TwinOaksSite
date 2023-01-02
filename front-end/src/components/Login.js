@@ -35,10 +35,18 @@ const Login = () => {
         result = await result.json();
         // Print to user
         console.warn(result);
-        // Add user to local storage
-        localStorage.setItem("user", JSON.stringify(result));
-        // Redirect user to main page
-        navigate("/");
+        // If user information was found and returned
+        if (result.email) {
+            // Add user to local storage
+            localStorage.setItem("user", JSON.stringify(result));
+            // Redirect user to main page
+            navigate("/");
+        }
+        // Otherwise, paraphrased result is
+        //      - result : Unable to find user
+        else {
+            alert("Please enter valid login credentials");
+        }
     }
     return (
     <main>
