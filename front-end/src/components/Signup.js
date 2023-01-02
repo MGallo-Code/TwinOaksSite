@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
@@ -11,6 +11,16 @@ const Signup = () => {
 
     // Used to redirect browser page (Usage: navigate("link"))
     const navigate = useNavigate();
+
+    // Check for authentication
+    useEffect(() => {
+        const auth = localStorage.getItem("user");
+        // If authenticated, return to home page
+        if (auth)
+        {
+            navigate("/");
+        }
+    }, /* Call once */ []);
 
     // Called on form submit
     const collectData = async () => {

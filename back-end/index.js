@@ -13,15 +13,28 @@ app.use(express.json());
  // ** see cors note above
 app.use(cors());
 
-// Create POST request route to app
+// Create POST request route for register
 app.post("/register", async (req, resp) => {
     // Create User db object from request's body content
     let user = new User(req.body);
     // Save changes made to db, store resulting db
-    let result = await user.save()
+    let result = await user.save();
+    // Remove password from response for security
+    result = result.toObject();
+    delete result.password;
     // Send back result db
     resp.send(result);
-})
+});
+
+// Create POST request route for login
+app.post("/login", async (req, resp) => {
+    if (req.body.password && (req.body.email || req.body.username)) {
+        let user = await User.findOne(req.body).select("-password");
+        user ? resp.send(user) : resp.send({ result : "No user found." });
+    } else {
+        resp.send({ result : "No user found." })
+    }
+});
 
 // Open app on localhost:5001
 app.listen(5001);
