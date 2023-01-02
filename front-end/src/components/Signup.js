@@ -46,48 +46,50 @@ const Signup = () => {
     }
 
     return (
-        <form className="signup-form">
-            <fieldset>
-                <legend>Register</legend>
-                <p>
-                    <label htmlFor="firstName">First Name</label>
-                    {/* Set variable's value each time field changes */}
-                    <input id="firstName" value={firstName} onChange={
-                        (e)=>setfirstName(e.target.value)
-                    }/>
-                </p>
-                <p>
-                    <label htmlFor="lastName">Last Name</label>
-                    {/* Set variable's value each time field changes */}
-                    <input id="lastName" value={lastName} onChange={
-                        (e)=>setlastName(e.target.value)
-                    }/>
-                </p>
-                <p>
-                    <label htmlFor="email">Email</label>
-                    {/* Set variable's value each time field changes */}
-                    <input id="email" type="text" value={email} onChange={
-                        (e)=>setEmail(e.target.value)
-                    }/>
-                </p>
-                <p>
-                    <label htmlFor="username">Username</label>
-                    {/* Set variable's value each time field changes */}
-                    <input id="username" type="text" value={username} onChange={
-                        (e)=>setUsername(e.target.value)
-                    }/>
-                </p>
-                <p>
-                    <label htmlFor="password">Password</label>
-                    {/* Set variable's value each time field changes */}
-                    <input id="password" type="password" value={password} onChange={
-                        (e)=>setPassword(e.target.value)
-                    }/>
-                </p>
-                {/* Fire collectData function on button click */}
-                <button onClick={collectData} type="button">Sign Up!</button>
-            </fieldset>
-        </form>
+        <main>
+            <form className="signup-form">
+                <fieldset>
+                    <legend>Register</legend>
+                    <p>
+                        <label htmlFor="firstName">First Name</label>
+                        {/* Set variable's value each time field changes */}
+                        <input id="firstName" value={firstName} onChange={
+                            (e)=>setfirstName(e.target.value)
+                        }/>
+                    </p>
+                    <p>
+                        <label htmlFor="lastName">Last Name</label>
+                        {/* Set variable's value each time field changes */}
+                        <input id="lastName" value={lastName} onChange={
+                            (e)=>setlastName(e.target.value)
+                        }/>
+                    </p>
+                    <p>
+                        <label htmlFor="email">Email</label>
+                        {/* Set variable's value each time field changes */}
+                        <input id="email" type="text" value={email} onChange={
+                            (e)=>setEmail(e.target.value)
+                        }/>
+                    </p>
+                    <p>
+                        <label htmlFor="username">Username</label>
+                        {/* Set variable's value each time field changes */}
+                        <input id="username" type="text" value={username} onChange={
+                            (e)=>setUsername(e.target.value)
+                        }/>
+                    </p>
+                    <p>
+                        <label htmlFor="password">Password</label>
+                        {/* Set variable's value each time field changes */}
+                        <input id="password" type="password" value={password} onChange={
+                            (e)=>setPassword(e.target.value)
+                        }/>
+                    </p>
+                    {/* Fire collectData function on button click */}
+                    <button onClick={collectData} type="button">Sign Up!</button>
+                </fieldset>
+            </form>
+        </main>
     )
 }
 
