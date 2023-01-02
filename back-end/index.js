@@ -28,7 +28,7 @@ app.post("/register", async (req, resp) => {
 
 // Create POST request route for login
 app.post("/login", async (req, resp) => {
-    if (req.body.password && (req.body.email || req.body.username)) {
+    if (req.body.password && req.body.username) {
         let user = await User.findOne(req.body).select("-password");
         user ? resp.send(user) : resp.send({ result : "No user found." });
     } else {
