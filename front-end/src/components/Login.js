@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { json, Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     // Create React hooks for each field
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     // Used to redirect browser page (Usage: navigate("link"))
@@ -20,13 +20,13 @@ const Login = () => {
     }, /* Call once */ [navigate]);
 
     // Called on form submit
-    const collectData = async () => {
+    const logIn = async () => {
         // Print all info to screen
-        console.warn(`${username}, ${password}`);
+        console.warn(`${email}, ${password}`);
         // Send post request with form data, save result
         let result = await fetch("http://localhost:5001/login", {
             method:"post",
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ email, password }),
             headers:{
                 "Content-Type": "application/json"
             }
@@ -46,10 +46,10 @@ const Login = () => {
             <fieldset>
                 <legend>Login</legend>
                 <p>
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="email">Email</label>
                     {/* Set variable's value each time field changes */}
-                    <input id="username" type="text" value={username} onChange={
-                        (e)=>setUsername(e.target.value)
+                    <input id="email" type="text" value={email} onChange={
+                        (e)=>setEmail(e.target.value)
                     }/>
                 </p>
                 <p>
@@ -59,8 +59,8 @@ const Login = () => {
                         (e)=>setPassword(e.target.value)
                     }/>
                 </p>
-                {/* Fire collectData function on button click */}
-                <button onClick={collectData} type="button">Log In!</button>
+                {/* Fire logIn function on button click */}
+                <button onClick={logIn} type="button">Log In!</button>
             </fieldset>
         </form>
         <p><Link to="/signup">Signup</Link></p>
